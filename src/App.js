@@ -9,7 +9,8 @@ function App() {
   //TODO: STEP 2 - Establish your applictaion's state with some useState hooks.  You'll need one for the home score and another for the away score.
   const [lNewScore, lScore] = useState(0);
   const [tNewScore, tScore] = useState(0);
-
+  const [newQuarter, oldQuarter] = useState(1);
+ 
   return (
     <div className="container">
       <section className="scoreboard">
@@ -27,7 +28,27 @@ function App() {
             <div className="away__score">{tNewScore}</div>
           </div>
         </div>
-        <BottomRow />
+          
+      <div className="bottomRow">
+        <div className="down">
+          <h3 className="down__title">Down</h3>
+          <div className="down__value">3</div>
+        </div>
+        <div className="toGo">
+          <h3 className="toGo__title">To Go</h3>
+          <div className="toGo__value">7</div>
+        </div>
+        <div className="ballOn">
+          <h3 className="ballOn__title">Ball on</h3>
+          <div className="ballOn__value">21</div>
+        </div>
+        <div className="quarter">
+          <h3 className="quarter__title">Quarter</h3>
+          <div className="quarter__value">{newQuarter}</div>
+        </div>
+      </div>
+  
+
       </section>
       <section className="buttons">
         <div className="homeButtons">
@@ -38,6 +59,9 @@ function App() {
         <div className="awayButtons">
           <button className="awayButtons__touchdown" onClick={() => tScore(tNewScore + 7)}>Away Touchdown</button>
           <button className="awayButtons__fieldGoal" onClick={() => tScore(tNewScore + 3)}>Away Field Goal</button>
+        </div>
+        <div className="quarter">
+          <button className=".quarterButtons" onClick={() => oldQuarter(newQuarter + 1)}>Quarter</button>
         </div>
       </section>
     </div>
