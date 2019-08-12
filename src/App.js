@@ -61,7 +61,13 @@ function App() {
           <button className="awayButtons__fieldGoal" onClick={() => tScore(tNewScore + 3)}>Away Field Goal</button>
         </div>
         <div className="quarter">
-          <button className=".quarterButtons" onClick={() => oldQuarter(newQuarter + 1)}>Quarter</button>
+          <button className=".quarterButtons" 
+            onClick={() => {
+              if(newQuarter < 4 ){
+                oldQuarter(newQuarter + 1)  
+              }else{oldQuarter("OT")} }
+              }>
+            Quarter</button>
         </div>
       </section>
     </div>
